@@ -1,0 +1,9 @@
+name: DwarvesAndZombies
+description: Recode of the DwarvesAndZombies Original
+author: [ DennisHellwig ]
+version: 0.0.1_SNAPSHOT
+api-version: 1.18
+main: hellwig.daz.plugin.DaZPlugin
+
+commands:
+  setlobbylocation:
