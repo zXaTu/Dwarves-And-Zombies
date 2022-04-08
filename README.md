@@ -1,2 +1,3 @@
 # Dwarves-And-Zombies
-Dwarves and Zombies RECODE
+An Java-Plugin for Minecraft-Spigot
+
