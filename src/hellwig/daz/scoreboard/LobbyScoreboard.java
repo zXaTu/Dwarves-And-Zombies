@@ -11,7 +11,7 @@ import hellwig.daz.plugin.DaZPlugin;
 public class LobbyScoreboard extends ScoreboardBuilder {
 
 	public DaZPlugin plugin;
-	
+
 	public BukkitTask task;
 
 	public LobbyScoreboard(Player player, String displayName, DaZPlugin plugin) {
@@ -72,6 +72,20 @@ public class LobbyScoreboard extends ScoreboardBuilder {
 
 				}
 
+				if (state == ArenaState.STARTING) {
+
+					setScore("§a§l■ §7Status : §d§lSTARTING", 10);
+					setScore("§a§l■ §7Players : §f" + players + "/25", 9);
+
+				}
+
+				if (state == ArenaState.RESTARTING) {
+
+					setScore("§a§l■ §7Status : §c§lRESTARTING", 10);
+					setScore("§a§l■ §7Players : §fNaN", 9);
+
+				}
+
 			}
 
 			if (arena.getName().equals("Arena2")) {
@@ -97,6 +111,20 @@ public class LobbyScoreboard extends ScoreboardBuilder {
 
 					setScore("§9§l■ §7Status : §c§lENDING", 6);
 					setScore("§9§l■ §7Players : §f" + players + "/25", 5);
+
+				}
+
+				if (state == ArenaState.STARTING) {
+
+					setScore("§9§l■ §7Status : §d§lSTARTING", 10);
+					setScore("§9§l■ §7Players : §f" + players + "/25", 9);
+
+				}
+
+				if (state == ArenaState.RESTARTING) {
+
+					setScore("§9§l■ §7Status : §c§lRESTARTING", 10);
+					setScore("§9§l■ §7Players : §fNaN", 9);
 
 				}
 
@@ -128,28 +156,41 @@ public class LobbyScoreboard extends ScoreboardBuilder {
 
 				}
 
+				if (state == ArenaState.STARTING) {
+
+					setScore("§d§l■ §7Status : §d§lSTARTING", 10);
+					setScore("§d§l■ §7Players : §f" + players + "/25", 9);
+
+				}
+
+				if (state == ArenaState.RESTARTING) {
+
+					setScore("§d§l■ §7Status : §c§lRESTARTING", 10);
+					setScore("§d§l■ §7Players : §fNaN", 9);
+
+				}
+
 			}
 
 		}
 
 	}
-	
+
 	public void cancel() {
-		
+
 		this.task.cancel();
-		
+
 	}
 
 	private void run() {
 
 		task = Bukkit.getScheduler().runTaskTimerAsynchronously(getPlugin(), new Runnable() {
-			
+
 			@Override
 			public void run() {
-				
+
 				update();
-				
-				
+
 			}
 		}, 0, 5);
 

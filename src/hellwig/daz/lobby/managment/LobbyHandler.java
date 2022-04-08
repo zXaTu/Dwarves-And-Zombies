@@ -28,7 +28,7 @@ public class LobbyHandler {
 		spawnEnts();
 		
 		spawnEntitys("help", getPlugin().getLobbyLocationHandler().locations.get("Entity_Help"), "§e§lHow to play Dwarves and Zombies");
-		spawnEntitys("panda", getPlugin().getLobbyLocationHandler().locations.get("Entity_Unknown"), "§c§oUnknown Entity");
+		spawnEntitys("panda", getPlugin().getLobbyLocationHandler().locations.get("Entity_Unknown"), "§a§lAchievements");
 	}
 	
 	public void spawnEnts() {

@@ -42,6 +42,8 @@ public class PlayerJoinListener implements Listener {
 		player.setHealth(6);
 		player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(6);
 		player.setFoodLevel(20);
+		player.setExp(0);
+		player.setLevel(0);
 		
 		player.getInventory().setItem(8, new ItemBuilder(Material.BOOK).setName("§f§lHOW TO PLAY §7§o(RIGHTCLICK)").toItemStack());
 		
@@ -59,13 +61,15 @@ public class PlayerJoinListener implements Listener {
 		
 		Player player = (Player) event.getEntity();
 		
-		if(getPlugin().getArenaManager().getArena(player) == null) {
+		if(player.getWorld().getName().equalsIgnoreCase("world")) {
 			
 			event.setCancelled(true);
 			
-		} else {
+		}
+		
+		if(getPlugin().getArenaManager().getArena(player) != null) {
 			
-			if(getPlugin().getArenaManager().getArena(player).getState() == ArenaState.WAITING) {
+			if(getPlugin().getArenaManager().getArena(player).getState().equals(ArenaState.WAITING)) {
 				
 				event.setCancelled(true);
 				

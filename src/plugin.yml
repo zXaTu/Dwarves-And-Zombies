@@ -7,3 +7,4 @@ main: hellwig.daz.plugin.DaZPlugin
 
 commands:
   setlobbylocation:
+  start:
